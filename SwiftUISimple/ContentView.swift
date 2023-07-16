@@ -31,11 +31,7 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        TextFieldContentView()
-    }
-}
+
 
 
 struct ContentView2: View {
@@ -120,5 +116,59 @@ struct TextFieldContentView: View {
     }
 }
 
+
+struct StrapperContentView: View {
+    @State var  age = 20
+    var body: some View {
+        VStack(
+            alignment: .center) {
+               Stepper("Negap", value: $age)
+                Text("count \(age)")
+               
+                
+            }.frame(height: .infinity)
+        
+            
+            
+        
+    }
+}
+
+struct onTapContentView: View {
+    @State var  text = ""
+    var body: some View {
+        VStack(
+            alignment: .center) {
+              
+                
+                Image("android")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .edgesIgnoringSafeArea(.all)
+                    .frame(height: 250)
+                    .onTapGesture(count:2) {
+                        text="GGGW"
+                    }
+                    .onLongPressGesture(minimumDuration: 2, perform: {
+                        text="AXaxaxa"
+                    })
+                Text(text)
+               
+                
+            }.frame(height: .infinity)
+        
+            
+            
+        
+    }
+}
+
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        onTapContentView()
+        
+    }
+}
 
 

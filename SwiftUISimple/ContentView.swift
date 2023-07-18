@@ -164,10 +164,32 @@ struct onTapContentView: View {
 }
 
 
+
+struct ListItemM:View{
+    
+    var mytext:String
+    
+    var body: some View{
+        Text(mytext)
+    }
+}
+
+struct MyCustomList:View{
+   
+    var body: some View{
+        List{
+            ListItemM(mytext: "Pr")
+        }
+        
+        
+    }
+}
+
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        onTapContentView()
-        
+       
+        MyCustomList()
     }
 }
 

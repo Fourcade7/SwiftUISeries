@@ -197,6 +197,7 @@ struct NavigationVieww:View{
                        
                     }, label: {
                        Text("Click me")
+                        
                     })
                     Button(action: {
                                             
@@ -207,17 +208,68 @@ struct NavigationVieww:View{
                     NavigationLink(destination: MyCustomList()) {
                      Text("Do Something")
                     }
+                  
+
                 }
                   
                 )
+            
+            
+        
         }
+        
+       
+    }
+}
+
+struct mytabview:View{
+    var body:some View{
+        VStack{
+            TabView{
+                Text("FirstTab")
+                    .tabItem {
+                        Image(systemName: "1.circle")
+                        Text("First")
+                    }
+                Text("SecondTab")
+                    .tabItem {
+                        Image(systemName: "2.circle")
+                        Text("Second")
+                    }
+            }
+           
+        }
+    }
+    
+}
+
+
+struct hstackwithnavigation:View{
+    var body : some View{
+        
+        NavigationView{
+            VStack{
+                
+                Text("Xixixifdsfsdfdff")
+                    .navigationBarTitle("axaxaxaxax")
+                    .padding(.horizontal,45)
+                
+                Text("kak ?")
+                
+            }.frame(maxWidth: .infinity, // Full Screen Width
+                    maxHeight: .infinity, // Full Screen Height
+                    alignment: .top) // Align To top
+        }
+        
+        
+       
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
        
-        NavigationVieww()
+       hstackwithnavigation()
     }
 }
 

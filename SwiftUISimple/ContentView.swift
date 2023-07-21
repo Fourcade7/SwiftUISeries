@@ -186,10 +186,38 @@ struct MyCustomList:View{
 }
 
 
+struct NavigationVieww:View{
+    var body : some View{
+        NavigationView {
+            Text("axaxax")
+                .navigationBarTitle("PR", displayMode: .large)
+                .navigationBarItems(trailing:
+                 HStack{
+                    Button(action: {
+                       
+                    }, label: {
+                       Text("Click me")
+                    })
+                    Button(action: {
+                                            
+                    }, label: {
+                       Text("exit")
+                    })
+                    
+                    NavigationLink(destination: MyCustomList()) {
+                     Text("Do Something")
+                    }
+                }
+                  
+                )
+        }
+    }
+}
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
        
-        MyCustomList()
+        NavigationVieww()
     }
 }
 

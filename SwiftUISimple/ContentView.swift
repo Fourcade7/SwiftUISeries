@@ -266,10 +266,50 @@ struct hstackwithnavigation:View{
     }
 }
 
+struct myalertdialog:View{
+    @State var showalert = false
+    @State var showalert2 = false
+    @State var showsheet = false
+    var body: some View{
+        HStack{
+            Button("Show Alert"){
+                showalert = true
+            }.alert(isPresented: $showalert) {
+                Alert(title: Text("Negap"),
+                      message: Text("Jolli Gap"),
+                      dismissButton: .default(Text("bos"))
+                )
+            }
+            
+            Button("Show Alert2222"){
+                showalert = true
+            }.alert(isPresented: $showalert2) {
+                Alert (title: Text ("Are yo sure you want to delete this?"),
+                       message: Text ("There is no way back"),
+                       primaryButton:.destructive (Text ("Delete" )) { print ("Deleting...")
+                }, secondaryButton: .cancel ())
+            }
+            
+            Button("Show Sheet"){
+                showsheet = true
+                
+            }.actionSheet(isPresented: $showsheet){
+             ActionSheet(
+                title: Text("NEgap"),
+                message: Text("Shu gap shu"),
+                buttons: [.cancel(Text("exit")),.default(Text("Accept")),.destructive(Text("Delete"))]
+             )
+        
+            }
+        }
+       
+    }
+}
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
        
-       hstackwithnavigation()
+       myalertdialog()
     }
 }
 
